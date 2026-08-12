@@ -11,7 +11,7 @@ This project evaluates AI-generated customer service responses across six dimens
 * Clarity
 * Made-up Information
 
-The evaluator produces individual scores, an overall score out of 30, feedback, and an improved response.
+The evaluation prompt is designed to produce individual scores, an overall score out of 30, feedback, and an improved response.
 
 ---
 
@@ -153,6 +153,89 @@ ai-customer-service-response-evaluator/
 
 ---
 
+## 🛠️ How to Use
+
+This project can be used manually with an AI chat interface such as ChatGPT.
+
+### Step 1 — Open the evaluation prompt
+
+Open:
+
+`prompts/evaluation-prompt.md`
+
+Copy the complete evaluation prompt.
+
+For the refined version, use:
+
+`prompts/evaluation-prompt-v2.md`
+
+### Step 2 — Provide the customer complaint
+
+Under the evaluation prompt, provide the customer's complaint.
+
+Example:
+
+```text
+Customer Complaint:
+
+I've been waiting for my order for two weeks! This is ridiculous. Where is my package?
+```
+
+### Step 3 — Provide the AI response
+
+Add the AI-generated customer service response that you want to evaluate.
+
+Example:
+
+```text
+AI Response:
+
+I'm sorry your order is taking so long. I understand how frustrating it must be to wait two weeks for your package. Please provide your order number or tracking number so I can check the status of your order.
+```
+
+### Step 4 — Run the evaluation
+
+Submit the prompt and input to the AI.
+
+The evaluator will return:
+
+* A score from 1–5 for each criterion
+* An overall score out of 30
+* Reasons for each score
+* Feedback on weaknesses
+* An improved customer service response
+
+### Step 5 — Review the results
+
+Use the evaluation to identify problems such as:
+
+* Lack of empathy
+* Unsupported claims
+* Unprofessional language
+* Poor helpfulness
+* Unclear communication
+* Made-up information
+
+The evaluation can then be used to improve the original customer service response.
+
+### Example Workflow
+
+```text
+Evaluation Prompt
+        ↓
+Customer Complaint
+        ↓
+AI Response
+        ↓
+Run in AI Chat
+        ↓
+Scores + Feedback
+        ↓
+Improved Response
+```
+
+---
+
 ## 🧠 Prompt Engineering Approach
 
 The evaluation prompt was developed iteratively.
@@ -220,6 +303,40 @@ The V1 vs V2 experiment showed that more detailed scoring guidance can change ho
 A prompt should not be considered reliable simply because it looks well-written.
 
 It should be tested against multiple response types.
+
+---
+
+## ⚠️ Limitations
+
+This project is currently a prompt-based evaluation framework rather than an automated application.
+
+### Manual Evaluation
+
+The evaluation prompt must currently be copied into an AI chat interface manually. There is no automated API integration or user interface.
+
+### AI-Based Judgement
+
+The evaluator is itself an AI model, so its scores may vary depending on the model, prompt, and context.
+
+The scores should therefore be treated as evaluation guidance rather than objective ground truth.
+
+### Limited Test Dataset
+
+The current experiments use a small number of customer service scenarios. More examples would be needed to determine whether the evaluation framework performs consistently across different situations.
+
+### No Human Benchmark
+
+The project does not currently compare AI-generated evaluation scores against scores from human customer service professionals.
+
+A future version could use human ratings as a benchmark for measuring evaluator consistency.
+
+### No Automated Metrics
+
+The project does not currently calculate statistical measures such as evaluator agreement, score consistency, or correlation with human evaluations.
+
+### Future Direction
+
+These limitations provide opportunities for future development, including API automation, larger test datasets, structured outputs, human evaluation benchmarks, and automated consistency analysis.
 
 ---
 
